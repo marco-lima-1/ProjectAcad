@@ -1,9 +1,7 @@
 ﻿using System;
+using System.Data;
 using System.Data.SqlClient;
-using System.Data.Sql;
 using System.Windows.Forms;
-using System.Drawing;
-using System.Runtime.Remoting.Contexts;
 
 namespace Projeto01
 {
@@ -14,6 +12,15 @@ namespace Projeto01
         {
             InitializeComponent();
         }
+
+        //conexao com banco de dados
+        SqlConnection cn = new SqlConnection("Data Source = OGPC; Initial Catalog = Academia; User Id=sa;Password=39465512");
+
+        string strSQL = "insert into Cliente (Nome, Cpf, Telefone) values (@nome, @cpf, @telefone)";
+
+
+
+
         private void FrmPrincipal_Load(object sender, EventArgs e)
         {
 
@@ -28,54 +35,58 @@ namespace Projeto01
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            LimparCampos();
-            DesabilitarCampos();
-            DesabilitarBotoes();
-            btnNovo.Enabled = true;
-
-            //criamos a string de conexao
-            SqlConnection conn = new SqlConnection("Data Source = OGPC; Initial Catalog = aula; User Id=sa;Password=39465512");
-
-            //cria string de inserção sql
-            string sql = "INSERT INTO Cliente(id, nome, cpf, tel) VALUES (@id, @nome, @cpf, @tel)";
-            Random numeroID = new Random();
-            numeroID.Next();
-
-
-
             try
             {
-                //cria um objeto do tipo comando passando como parametro a string sql e conn
-                SqlCommand c = new SqlCommand(sql, conn);
+                cn.Open();
 
-                //insere os dados da texBox no comando sql
-                c.Parameters.Add(new SqlParameter("@id", numeroID.Next()));
-                c.Parameters.Add(new SqlParameter("@nome", this.txtNome.Text));
-                c.Parameters.Add(new SqlParameter("@cpf", this.txtCPF.Text));
-                c.Parameters.Add(new SqlParameter("@tel", this.txtTel.Text));
+                // Verificação para ver se existe CPF igual ao inserido
+                string checkCpfSQL = "SELECT COUNT(*) FROM Cliente WHERE Cpf = @cpf";
+                SqlCommand checkCmd = new SqlCommand(checkCpfSQL, cn);
+                checkCmd.Parameters.AddWithValue("@cpf", this.txtCPF.Text);
 
-                //abrimos a conexao com banco de dados
-                conn.Open();
+                // Executa a consulta e obtém o resultado
+                int count = (int)checkCmd.ExecuteScalar();
 
-                //executa o comando sql no banco de dados
-                c.BeginExecuteNonQuery();
+                if (count > 0)
+                {
+                    // CPF já cadastrado
+                    MessageBox.Show("CPF já cadastrado", "Ops", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    // CPF não cadastrado, prosseguir com a inserção
+                    string insertSQL = "INSERT INTO Cliente (Nome, Cpf, Telefone) VALUES (@nome, @cpf, @telefone)";
+                    SqlCommand insertCmd = new SqlCommand(insertSQL, cn);
 
-                //Fechamos a conexao
-                conn.Close();
+                    // Adicionando os parâmetros com os valores dos campos de texto
+                    insertCmd.Parameters.AddWithValue("@nome", this.txtNome.Text);
+                    insertCmd.Parameters.AddWithValue("@cpf", this.txtCPF.Text);
+                    insertCmd.Parameters.AddWithValue("@telefone", this.txtTel.Text);
 
-                //aviso que deu certo
-                MessageBox.Show("Cadastro concluído com êxito");
+                    // Executando o comando de inserção
+                    insertCmd.ExecuteNonQuery();
+                    MessageBox.Show("Cadastro concluído com êxito");
+
+                    // Limpando os campos e desabilitando após o sucesso da inserção
+                    LimparCampos();
+                    DesabilitarCampos();
+                    DesabilitarBotoes();
+                    btnNovo.Enabled = true;
+                }
+
+                // Fechar a conexão
+                cn.Close();
             }
-            catch (SqlException ex)
+            catch (Exception erro)
             {
-                MessageBox.Show("Ocorreu o erro: " + ex);
+                MessageBox.Show(erro.Message);
+                if (cn.State == ConnectionState.Open)
+                {
+                    cn.Close();
+                }
             }
-            finally
-            {
-                conn.Close();
-            }
-
         }
+
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
