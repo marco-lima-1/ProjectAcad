@@ -44,7 +44,7 @@ namespace Projeto01
                 SqlCommand checkCmd = new SqlCommand(checkCpfSQL, cn);
                 checkCmd.Parameters.AddWithValue("@cpf", this.txtCPF.Text);
 
-                // Executa a consulta e obtém o resultado
+                // Executa a consulta e obtém o resultado.
                 int count = (int)checkCmd.ExecuteScalar();
 
                 if (count > 0)
