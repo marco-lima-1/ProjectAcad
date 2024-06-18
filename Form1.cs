@@ -35,47 +35,101 @@ namespace Projeto01
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
+            if (txtNome.Text.Length == 0 || txtCPF.Text.Length == 0)
+            {
+                MessageBox.Show("Os campos Nome e CPF são obrigatórios !");
+            }
+            else
+            {
+                try
+                {
+                    cn.Open();
+
+                    // Verificação para ver se existe CPF igual ao inserido
+                    string checkCpfSQL = "SELECT COUNT(*) FROM Cliente WHERE Cpf = @cpf";
+                    SqlCommand checkCmd = new SqlCommand(checkCpfSQL, cn);
+                    checkCmd.Parameters.AddWithValue("@cpf", this.txtCPF.Text);
+
+                    // Executa a consulta e obtém o resultado.
+                    int count = (int)checkCmd.ExecuteScalar();
+
+                    if (count > 0)
+                    {
+                        // CPF já cadastrado
+                        MessageBox.Show("CPF já cadastrado", "Ops", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        // CPF não cadastrado, prosseguir com a inserção
+                        string insertSQL = "INSERT INTO Cliente (Nome, Cpf, Telefone) VALUES (@nome, @cpf, @telefone)";
+                        SqlCommand insertCmd = new SqlCommand(insertSQL, cn);
+
+                        // Adicionando os parâmetros com os valores dos campos de texto
+                        insertCmd.Parameters.AddWithValue("@nome", this.txtNome.Text);
+                        insertCmd.Parameters.AddWithValue("@cpf", this.txtCPF.Text);
+                        insertCmd.Parameters.AddWithValue("@telefone", this.txtTel.Text);
+
+                        // Executando o comando de inserção
+                        insertCmd.ExecuteNonQuery();
+                        MessageBox.Show("Cadastro concluído com êxito");
+
+                        // Limpando os campos e desabilitando após o sucesso da inserção
+                        LimparCampos();
+                        DesabilitarCampos();
+                        DesabilitarBotoes();
+                        btnNovo.Enabled = true;
+                    }
+
+                    // Fechar a conexão
+                    cn.Close();
+                }
+                catch (Exception erro)
+                {
+                    MessageBox.Show(erro.Message);
+                    if (cn.State == ConnectionState.Open)
+                    {
+                        cn.Close();
+                    }
+                }
+            }
+        }
+
+        private void btnPesquisar_Click(object sender, EventArgs e)
+        {
             try
             {
                 cn.Open();
 
                 // Verificação para ver se existe CPF igual ao inserido
-                string checkCpfSQL = "SELECT COUNT(*) FROM Cliente WHERE Cpf = @cpf";
+                string checkCpfSQL = "SELECT * FROM Cliente WHERE Cpf = @cpf";
                 SqlCommand checkCmd = new SqlCommand(checkCpfSQL, cn);
-                checkCmd.Parameters.AddWithValue("@cpf", this.txtCPF.Text);
+                checkCmd.Parameters.AddWithValue("@cpf", this.txtBusca.Text);
 
-                // Executa a consulta e obtém o resultado.
-                int count = (int)checkCmd.ExecuteScalar();
 
-                if (count > 0)
+                checkCmd.CommandText = checkCpfSQL;
+                SqlDataReader dt;
+                dt = checkCmd.ExecuteReader();
+                if (!dt.HasRows)
                 {
-                    // CPF já cadastrado
-                    MessageBox.Show("CPF já cadastrado", "Ops", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    // CPF não cadastrado
+                    MessageBox.Show("CPF não cadastrado !", "Erro no CPF", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    // CPF não cadastrado, prosseguir com a inserção
-                    string insertSQL = "INSERT INTO Cliente (Nome, Cpf, Telefone) VALUES (@nome, @cpf, @telefone)";
-                    SqlCommand insertCmd = new SqlCommand(insertSQL, cn);
+                    dt.Read();
+                    txtNome.Text = dt["Nome"].ToString();
+                    txtCPF.Text = dt["Cpf"].ToString();
+                    txtTel.Text = dt["Telefone"].ToString();
+                    HabilitarCampos();
+                    btnExcluir.Enabled = true;
+                    btnCancelar.Enabled = true;
+                    btnAtualizar.Enabled = true;
+                    btnNovo.Enabled = false;
 
-                    // Adicionando os parâmetros com os valores dos campos de texto
-                    insertCmd.Parameters.AddWithValue("@nome", this.txtNome.Text);
-                    insertCmd.Parameters.AddWithValue("@cpf", this.txtCPF.Text);
-                    insertCmd.Parameters.AddWithValue("@telefone", this.txtTel.Text);
 
-                    // Executando o comando de inserção
-                    insertCmd.ExecuteNonQuery();
-                    MessageBox.Show("Cadastro concluído com êxito");
-
-                    // Limpando os campos e desabilitando após o sucesso da inserção
-                    LimparCampos();
-                    DesabilitarCampos();
-                    DesabilitarBotoes();
-                    btnNovo.Enabled = true;
+                    txtBusca.Clear();
+                    cn.Close();
                 }
-
-                // Fechar a conexão
-                cn.Close();
             }
             catch (Exception erro)
             {
@@ -86,6 +140,7 @@ namespace Projeto01
                 }
             }
         }
+
 
 
         private void btnExcluir_Click(object sender, EventArgs e)
@@ -143,11 +198,36 @@ namespace Projeto01
             txtTel.Enabled = true;
         }
 
+        private void AtualizarDados()
+        {
+            cn.Open();
+            string updateSQL = "UPDATE Cliente SET Nome = @nome, Telefone = @telefone WHERE Cpf = @cpf";
+            SqlCommand updateCmd = new SqlCommand(updateSQL, cn);
+
+            // Adicionando os parâmetros com os valores dos campos de texto
+            updateCmd.Parameters.AddWithValue("@nome", this.txtNome.Text);
+            updateCmd.Parameters.AddWithValue("@cpf", this.txtCPF.Text);
+            updateCmd.Parameters.AddWithValue("@telefone", this.txtTel.Text);
+
+            // Executando o comando de atualização
+            updateCmd.ExecuteNonQuery();
+            MessageBox.Show("Dados atualizados com êxito");
 
 
+            // Limpando os campos e desabilitando após o sucesso da inserção
+            LimparCampos();
+            DesabilitarCampos();
+            DesabilitarBotoes();
+            btnNovo.Enabled = true;
 
+            cn.Close();
+        }
 
+        private void btnAtualizar_Click(object sender, EventArgs e)
+        {
+            AtualizarDados();
+        }
 
-
+        
     }
 }
