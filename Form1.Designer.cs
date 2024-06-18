@@ -39,11 +39,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnPesquisar = new System.Windows.Forms.Button();
-            this.txtBusca = new System.Windows.Forms.MaskedTextBox();
-            this.lblBuscarCpf = new System.Windows.Forms.Label();
             this.btnAtualizar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnPesquisar = new System.Windows.Forms.Button();
+            this.txtNomePesquisar = new System.Windows.Forms.TextBox();
+            this.lblNomePesquisar = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblNome
@@ -121,10 +121,10 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Courier New", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(187, 9);
+            this.label3.Font = new System.Drawing.Font("Candara", 14.25F, System.Drawing.FontStyle.Bold);
+            this.label3.Location = new System.Drawing.Point(14, 19);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(318, 22);
+            this.label3.Size = new System.Drawing.Size(280, 23);
             this.label3.TabIndex = 8;
             this.label3.Text = "TELA DE CADASTRO DE CLIENTES";
             // 
@@ -150,36 +150,10 @@
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.txtCancelar_Click);
             // 
-            // btnPesquisar
-            // 
-            this.btnPesquisar.Location = new System.Drawing.Point(252, 351);
-            this.btnPesquisar.Name = "btnPesquisar";
-            this.btnPesquisar.Size = new System.Drawing.Size(75, 23);
-            this.btnPesquisar.TabIndex = 11;
-            this.btnPesquisar.Text = "Pesquisar";
-            this.btnPesquisar.UseVisualStyleBackColor = true;
-            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
-            // 
-            // txtBusca
-            // 
-            this.txtBusca.Location = new System.Drawing.Point(121, 353);
-            this.txtBusca.Name = "txtBusca";
-            this.txtBusca.Size = new System.Drawing.Size(125, 20);
-            this.txtBusca.TabIndex = 13;
-            // 
-            // lblBuscarCpf
-            // 
-            this.lblBuscarCpf.AutoSize = true;
-            this.lblBuscarCpf.Location = new System.Drawing.Point(75, 356);
-            this.lblBuscarCpf.Name = "lblBuscarCpf";
-            this.lblBuscarCpf.Size = new System.Drawing.Size(30, 13);
-            this.lblBuscarCpf.TabIndex = 12;
-            this.lblBuscarCpf.Text = "CPF:";
-            // 
             // btnAtualizar
             // 
             this.btnAtualizar.Enabled = false;
-            this.btnAtualizar.Location = new System.Drawing.Point(333, 350);
+            this.btnAtualizar.Location = new System.Drawing.Point(204, 312);
             this.btnAtualizar.Name = "btnAtualizar";
             this.btnAtualizar.Size = new System.Drawing.Size(97, 23);
             this.btnAtualizar.TabIndex = 14;
@@ -190,23 +164,49 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Courier New", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(163, 311);
+            this.label1.Font = new System.Drawing.Font("Candara", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(15, 238);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(197, 22);
+            this.label1.Size = new System.Drawing.Size(177, 23);
             this.label1.TabIndex = 15;
-            this.label1.Text = "Pesquisar Cliente";
+            this.label1.Text = "PESQUISAR CLIENTE";
+            // 
+            // btnPesquisar
+            // 
+            this.btnPesquisar.Location = new System.Drawing.Point(123, 312);
+            this.btnPesquisar.Name = "btnPesquisar";
+            this.btnPesquisar.Size = new System.Drawing.Size(75, 23);
+            this.btnPesquisar.TabIndex = 16;
+            this.btnPesquisar.Text = "Pesquisar";
+            this.btnPesquisar.UseVisualStyleBackColor = true;
+            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisaNome_Click);
+            // 
+            // txtNomePesquisar
+            // 
+            this.txtNomePesquisar.Location = new System.Drawing.Point(122, 277);
+            this.txtNomePesquisar.Name = "txtNomePesquisar";
+            this.txtNomePesquisar.Size = new System.Drawing.Size(322, 20);
+            this.txtNomePesquisar.TabIndex = 18;
+            // 
+            // lblNomePesquisar
+            // 
+            this.lblNomePesquisar.AutoSize = true;
+            this.lblNomePesquisar.Location = new System.Drawing.Point(15, 280);
+            this.lblNomePesquisar.Name = "lblNomePesquisar";
+            this.lblNomePesquisar.Size = new System.Drawing.Size(84, 13);
+            this.lblNomePesquisar.TabIndex = 17;
+            this.lblNomePesquisar.Text = "Nome completo:";
             // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(637, 396);
+            this.Controls.Add(this.txtNomePesquisar);
+            this.Controls.Add(this.lblNomePesquisar);
+            this.Controls.Add(this.btnPesquisar);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnAtualizar);
-            this.Controls.Add(this.txtBusca);
-            this.Controls.Add(this.lblBuscarCpf);
-            this.Controls.Add(this.btnPesquisar);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.label3);
@@ -238,11 +238,11 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.Button btnPesquisar;
-        private System.Windows.Forms.MaskedTextBox txtBusca;
-        private System.Windows.Forms.Label lblBuscarCpf;
         private System.Windows.Forms.Button btnAtualizar;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnPesquisar;
+        private System.Windows.Forms.TextBox txtNomePesquisar;
+        private System.Windows.Forms.Label lblNomePesquisar;
     }
 }
 

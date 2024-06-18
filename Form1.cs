@@ -30,7 +30,10 @@ namespace Projeto01
             HabilitarCampos();
             txtNome.Focus();
             HabilitarBotoes();
+            btnExcluir.Enabled = false;
             btnNovo.Enabled = false;
+            txtNomePesquisar.Enabled = false;
+            btnPesquisar.Enabled = false;
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
@@ -100,19 +103,16 @@ namespace Projeto01
             {
                 cn.Open();
 
-                // Verificação para ver se existe CPF igual ao inserido
-                string checkCpfSQL = "SELECT * FROM Cliente WHERE Cpf = @cpf";
-                SqlCommand checkCmd = new SqlCommand(checkCpfSQL, cn);
-                checkCmd.Parameters.AddWithValue("@cpf", this.txtBusca.Text);
+                // Verificação para ver se existe um cliente com o nome inserido
+                string searchByNameSQL = "SELECT * FROM Cliente WHERE Nome = @nome";
+                SqlCommand searchCmd = new SqlCommand(searchByNameSQL, cn);
+                searchCmd.Parameters.AddWithValue("@nome", this.txtNomePesquisar.Text);
 
-
-                checkCmd.CommandText = checkCpfSQL;
-                SqlDataReader dt;
-                dt = checkCmd.ExecuteReader();
+                SqlDataReader dt = searchCmd.ExecuteReader();
                 if (!dt.HasRows)
                 {
-                    // CPF não cadastrado
-                    MessageBox.Show("CPF não cadastrado !", "Erro no CPF", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    // Nome não cadastrado
+                    MessageBox.Show("Nome não cadastrado!", "Erro no Nome", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
@@ -126,9 +126,7 @@ namespace Projeto01
                     btnAtualizar.Enabled = true;
                     btnNovo.Enabled = false;
 
-
-                    txtBusca.Clear();
-                    cn.Close();
+                    txtNomePesquisar.Clear();
                 }
             }
             catch (Exception erro)
@@ -141,23 +139,40 @@ namespace Projeto01
             }
         }
 
+        private void btnAtualizar_Click(object sender, EventArgs e)
+        {
+            AtualizarDados();
+        }
+
+
 
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
+            ExcluirDados();
             LimparCampos();
             DesabilitarCampos();
             DesabilitarBotoes();
+
             btnNovo.Enabled = true;
         }
 
         private void txtCancelar_Click(object sender, EventArgs e)
         {
-            DesabilitarBotoes();
+
             btnNovo.Enabled = true;
             LimparCampos();
             DesabilitarCampos();
+            btnPesquisar.Enabled = true;
+            txtNomePesquisar.Enabled=true;
         }
+        private void btnPesquisaNome_Click(object sender, EventArgs e)
+        {
+            BuscarPorNome();
+
+        }
+
+
 
         //metodo desabilita botoes
         private void DesabilitarBotoes()
@@ -175,6 +190,8 @@ namespace Projeto01
             btnSalvar.Enabled = true;
             btnExcluir.Enabled = true;
             btnCancelar.Enabled = true;
+            btnPesquisar.Enabled= true;
+            btnAtualizar.Enabled = true;
         }
         //metodo limpa textos
         private void LimparCampos()
@@ -182,6 +199,7 @@ namespace Projeto01
             txtNome.Clear();
             txtCPF.Clear();
             txtTel.Clear();
+            txtNomePesquisar.Clear();
         }
         //metodo desabilita textos
         private void DesabilitarCampos()
@@ -200,32 +218,116 @@ namespace Projeto01
 
         private void AtualizarDados()
         {
+            try
+            {
+                // Verificando se todos os campos estão preenchidos
+                if (string.IsNullOrWhiteSpace(this.txtNome.Text) ||
+                    string.IsNullOrWhiteSpace(this.txtCPF.Text) ||
+                    string.IsNullOrWhiteSpace(this.txtTel.Text))
+                {
+                    MessageBox.Show("Todos os campos devem ser preenchidos.");
+                    return;
+                }
+
+                cn.Open();
+                string updateSQL = "UPDATE Cliente SET Nome = @nome, Telefone = @telefone, Cpf = @cpf";
+                SqlCommand updateCmd = new SqlCommand(updateSQL, cn);
+
+                // Adicionando os parâmetros com os valores dos campos de texto
+                updateCmd.Parameters.AddWithValue("@nome", this.txtNome.Text.Trim());
+                updateCmd.Parameters.AddWithValue("@cpf", this.txtCPF.Text.Trim());
+                updateCmd.Parameters.AddWithValue("@telefone", this.txtTel.Text.Trim());
+
+                // Executando o comando de atualização
+                int rowsAffected = updateCmd.ExecuteNonQuery();
+
+                if (rowsAffected > 0)
+                {
+                    MessageBox.Show("Dados atualizados com êxito");
+
+                    // Limpando os campos e desabilitando após o sucesso da inserção
+                    LimparCampos();
+                    DesabilitarCampos();
+                    DesabilitarBotoes();
+                    btnNovo.Enabled = true;
+                }
+                else
+                {
+                    MessageBox.Show("Nenhum cliente encontrado com o CPF informado.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocorreu um erro ao atualizar os dados: " + ex.Message);
+            }
+            finally
+            {
+                if (cn.State == System.Data.ConnectionState.Open)
+                {
+                    cn.Close();
+                }
+            }
+
+
+        }
+
+        private void ExcluirDados()
+        {
             cn.Open();
-            string updateSQL = "UPDATE Cliente SET Nome = @nome, Telefone = @telefone WHERE Cpf = @cpf";
-            SqlCommand updateCmd = new SqlCommand(updateSQL, cn);
+            string deleteSQL = "DELETE FROM Cliente WHERE Cpf = @cpf";
+            SqlCommand deleteCmd = new SqlCommand(deleteSQL, cn);
 
-            // Adicionando os parâmetros com os valores dos campos de texto
-            updateCmd.Parameters.AddWithValue("@nome", this.txtNome.Text);
-            updateCmd.Parameters.AddWithValue("@cpf", this.txtCPF.Text);
-            updateCmd.Parameters.AddWithValue("@telefone", this.txtTel.Text);
+            // Adicionando o parâmetro com o CPF do cliente a ser excluído
+            deleteCmd.Parameters.AddWithValue("@cpf", this.txtCPF.Text);
 
-            // Executando o comando de atualização
-            updateCmd.ExecuteNonQuery();
-            MessageBox.Show("Dados atualizados com êxito");
+            // Executando o comando de exclusão
+            deleteCmd.ExecuteNonQuery();
+            MessageBox.Show("Cliente excluído com êxito");
 
-
-            // Limpando os campos e desabilitando após o sucesso da inserção
+            // Limpando os campos e desabilitando após o sucesso da exclusão
             LimparCampos();
             DesabilitarCampos();
             DesabilitarBotoes();
             btnNovo.Enabled = true;
 
             cn.Close();
+
         }
 
-        private void btnAtualizar_Click(object sender, EventArgs e)
+        private void BuscarPorNome()
         {
-            AtualizarDados();
+            cn.Open();
+            string selectSQL = "SELECT Nome, Cpf, Telefone FROM Cliente WHERE Nome = @nome";
+            SqlCommand selectCmd = new SqlCommand(selectSQL, cn);
+
+            // Adicionando o parâmetro com o nome para a busca
+            selectCmd.Parameters.AddWithValue("@nome", this.txtNomePesquisar.Text);
+
+            // Executando o comando de seleção
+            SqlDataReader reader = selectCmd.ExecuteReader();
+
+            if (reader.Read())
+            {
+                // Preenchendo os campos com as informações encontradas
+                this.txtNome.Text = reader["Nome"].ToString();
+                this.txtCPF.Text = reader["Cpf"].ToString();
+                this.txtTel.Text = reader["Telefone"].ToString();
+
+                MessageBox.Show("Dados encontrados e preenchidos com êxito");
+
+                HabilitarBotoes();
+                btnNovo.Enabled=false;
+                btnSalvar.Enabled=false;
+                HabilitarCampos();
+            }
+            else
+            {
+                MessageBox.Show("Cliente não encontrado");
+            }
+
+            reader.Close();
+            cn.Close();
+
         }
 
         
