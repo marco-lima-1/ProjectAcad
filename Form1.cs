@@ -164,7 +164,7 @@ namespace Projeto01
             LimparCampos();
             DesabilitarCampos();
             btnPesquisar.Enabled = true;
-            txtNomePesquisar.Enabled=true;
+            txtNomePesquisar.Enabled = true;
         }
         private void btnPesquisaNome_Click(object sender, EventArgs e)
         {
@@ -190,7 +190,7 @@ namespace Projeto01
             btnSalvar.Enabled = true;
             btnExcluir.Enabled = true;
             btnCancelar.Enabled = true;
-            btnPesquisar.Enabled= true;
+            btnPesquisar.Enabled = true;
             btnAtualizar.Enabled = true;
         }
         //metodo limpa textos
@@ -316,8 +316,8 @@ namespace Projeto01
                 MessageBox.Show("Dados encontrados e preenchidos com êxito");
 
                 HabilitarBotoes();
-                btnNovo.Enabled=false;
-                btnSalvar.Enabled=false;
+                btnNovo.Enabled = false;
+                btnSalvar.Enabled = false;
                 HabilitarCampos();
             }
             else
@@ -330,6 +330,43 @@ namespace Projeto01
 
         }
 
-        
+        private void btnInicio_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        bool sidebarExpand;
+
+        private void sidebarTime_Tick(object sender, EventArgs e)
+        {
+
+
+
+
+            if (sidebarExpand)
+            {
+                sidebar.Width -= 10;
+                if (sidebar.Width == sidebar.MinimumSize.Width)
+                {
+                    sidebarExpand = false;
+                    sidebarTime.Stop();
+                }
+            }
+            else
+            {
+                sidebar.Width += 10;
+                if(sidebar.Width == sidebar.MaximumSize.Width)
+                {
+                    sidebarExpand = true;
+                    sidebarTime.Stop();
+                }
+                
+            }
+        }
+
+        private void menuButton_Click(object sender, EventArgs e)
+        {
+            sidebarTime.Start();
+        }
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblNome = new System.Windows.Forms.Label();
             this.lblCpf = new System.Windows.Forms.Label();
             this.lblTel = new System.Windows.Forms.Label();
@@ -44,12 +45,38 @@
             this.btnPesquisar = new System.Windows.Forms.Button();
             this.txtNomePesquisar = new System.Windows.Forms.TextBox();
             this.lblNomePesquisar = new System.Windows.Forms.Label();
+            this.sidebar = new System.Windows.Forms.FlowLayoutPanel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.menuButton = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnInicio = new System.Windows.Forms.Button();
+            this.btnAlunos = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.btnPlanos = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.sidebarTime = new System.Windows.Forms.Timer(this.components);
+            this.sidebar.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.panel5.SuspendLayout();
+            this.panel6.SuspendLayout();
+            this.panel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.menuButton)).BeginInit();
             this.SuspendLayout();
             // 
             // lblNome
             // 
             this.lblNome.AutoSize = true;
-            this.lblNome.Location = new System.Drawing.Point(15, 63);
+            this.lblNome.Location = new System.Drawing.Point(254, 77);
             this.lblNome.Name = "lblNome";
             this.lblNome.Size = new System.Drawing.Size(84, 13);
             this.lblNome.TabIndex = 0;
@@ -58,7 +85,7 @@
             // lblCpf
             // 
             this.lblCpf.AutoSize = true;
-            this.lblCpf.Location = new System.Drawing.Point(76, 90);
+            this.lblCpf.Location = new System.Drawing.Point(315, 104);
             this.lblCpf.Name = "lblCpf";
             this.lblCpf.Size = new System.Drawing.Size(30, 13);
             this.lblCpf.TabIndex = 1;
@@ -67,7 +94,7 @@
             // lblTel
             // 
             this.lblTel.AutoSize = true;
-            this.lblTel.Location = new System.Drawing.Point(64, 116);
+            this.lblTel.Location = new System.Drawing.Point(303, 130);
             this.lblTel.Name = "lblTel";
             this.lblTel.Size = new System.Drawing.Size(42, 13);
             this.lblTel.TabIndex = 2;
@@ -76,7 +103,7 @@
             // txtNome
             // 
             this.txtNome.Enabled = false;
-            this.txtNome.Location = new System.Drawing.Point(122, 60);
+            this.txtNome.Location = new System.Drawing.Point(361, 74);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(322, 20);
             this.txtNome.TabIndex = 3;
@@ -84,7 +111,7 @@
             // txtCPF
             // 
             this.txtCPF.Enabled = false;
-            this.txtCPF.Location = new System.Drawing.Point(122, 87);
+            this.txtCPF.Location = new System.Drawing.Point(361, 101);
             this.txtCPF.Name = "txtCPF";
             this.txtCPF.Size = new System.Drawing.Size(125, 20);
             this.txtCPF.TabIndex = 4;
@@ -92,14 +119,14 @@
             // txtTel
             // 
             this.txtTel.Enabled = false;
-            this.txtTel.Location = new System.Drawing.Point(122, 113);
+            this.txtTel.Location = new System.Drawing.Point(361, 127);
             this.txtTel.Name = "txtTel";
             this.txtTel.Size = new System.Drawing.Size(125, 20);
             this.txtTel.TabIndex = 5;
             // 
             // btnNovo
             // 
-            this.btnNovo.Location = new System.Drawing.Point(123, 151);
+            this.btnNovo.Location = new System.Drawing.Point(362, 165);
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.Size = new System.Drawing.Size(75, 23);
             this.btnNovo.TabIndex = 6;
@@ -110,7 +137,7 @@
             // btnSalvar
             // 
             this.btnSalvar.Enabled = false;
-            this.btnSalvar.Location = new System.Drawing.Point(204, 151);
+            this.btnSalvar.Location = new System.Drawing.Point(443, 165);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(75, 23);
             this.btnSalvar.TabIndex = 7;
@@ -122,7 +149,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Candara", 14.25F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(14, 19);
+            this.label3.Location = new System.Drawing.Point(253, 33);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(280, 23);
             this.label3.TabIndex = 8;
@@ -131,7 +158,7 @@
             // btnExcluir
             // 
             this.btnExcluir.Enabled = false;
-            this.btnExcluir.Location = new System.Drawing.Point(285, 151);
+            this.btnExcluir.Location = new System.Drawing.Point(524, 165);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(75, 23);
             this.btnExcluir.TabIndex = 9;
@@ -142,7 +169,7 @@
             // btnCancelar
             // 
             this.btnCancelar.Enabled = false;
-            this.btnCancelar.Location = new System.Drawing.Point(366, 151);
+            this.btnCancelar.Location = new System.Drawing.Point(605, 165);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 10;
@@ -153,7 +180,7 @@
             // btnAtualizar
             // 
             this.btnAtualizar.Enabled = false;
-            this.btnAtualizar.Location = new System.Drawing.Point(204, 312);
+            this.btnAtualizar.Location = new System.Drawing.Point(443, 326);
             this.btnAtualizar.Name = "btnAtualizar";
             this.btnAtualizar.Size = new System.Drawing.Size(97, 23);
             this.btnAtualizar.TabIndex = 14;
@@ -165,7 +192,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Candara", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(15, 238);
+            this.label1.Location = new System.Drawing.Point(254, 252);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(177, 23);
             this.label1.TabIndex = 15;
@@ -173,7 +200,7 @@
             // 
             // btnPesquisar
             // 
-            this.btnPesquisar.Location = new System.Drawing.Point(123, 312);
+            this.btnPesquisar.Location = new System.Drawing.Point(362, 326);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(75, 23);
             this.btnPesquisar.TabIndex = 16;
@@ -183,7 +210,7 @@
             // 
             // txtNomePesquisar
             // 
-            this.txtNomePesquisar.Location = new System.Drawing.Point(122, 277);
+            this.txtNomePesquisar.Location = new System.Drawing.Point(361, 291);
             this.txtNomePesquisar.Name = "txtNomePesquisar";
             this.txtNomePesquisar.Size = new System.Drawing.Size(322, 20);
             this.txtNomePesquisar.TabIndex = 18;
@@ -191,17 +218,219 @@
             // lblNomePesquisar
             // 
             this.lblNomePesquisar.AutoSize = true;
-            this.lblNomePesquisar.Location = new System.Drawing.Point(15, 280);
+            this.lblNomePesquisar.Location = new System.Drawing.Point(254, 294);
             this.lblNomePesquisar.Name = "lblNomePesquisar";
             this.lblNomePesquisar.Size = new System.Drawing.Size(84, 13);
             this.lblNomePesquisar.TabIndex = 17;
             this.lblNomePesquisar.Text = "Nome completo:";
             // 
+            // sidebar
+            // 
+            this.sidebar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.sidebar.Controls.Add(this.panel1);
+            this.sidebar.Controls.Add(this.panel2);
+            this.sidebar.Controls.Add(this.panel4);
+            this.sidebar.Controls.Add(this.panel6);
+            this.sidebar.Dock = System.Windows.Forms.DockStyle.Left;
+            this.sidebar.Location = new System.Drawing.Point(0, 0);
+            this.sidebar.MaximumSize = new System.Drawing.Size(220, 652);
+            this.sidebar.MinimumSize = new System.Drawing.Size(79, 652);
+            this.sidebar.Name = "sidebar";
+            this.sidebar.Size = new System.Drawing.Size(79, 652);
+            this.sidebar.TabIndex = 19;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.menuButton);
+            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(217, 78);
+            this.panel1.TabIndex = 0;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.panel3);
+            this.panel2.Controls.Add(this.btnInicio);
+            this.panel2.Location = new System.Drawing.Point(3, 87);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(217, 49);
+            this.panel2.TabIndex = 1;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.button1);
+            this.panel3.Location = new System.Drawing.Point(8, 8);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(217, 49);
+            this.panel3.TabIndex = 21;
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.panel5);
+            this.panel4.Controls.Add(this.button3);
+            this.panel4.Location = new System.Drawing.Point(3, 142);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(217, 49);
+            this.panel4.TabIndex = 22;
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.btnAlunos);
+            this.panel5.Location = new System.Drawing.Point(8, 8);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(217, 49);
+            this.panel5.TabIndex = 21;
+            // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.panel7);
+            this.panel6.Controls.Add(this.button5);
+            this.panel6.Location = new System.Drawing.Point(3, 197);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(217, 49);
+            this.panel6.TabIndex = 22;
+            // 
+            // panel7
+            // 
+            this.panel7.Controls.Add(this.btnPlanos);
+            this.panel7.Location = new System.Drawing.Point(8, 8);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(217, 49);
+            this.panel7.TabIndex = 21;
+            // 
+            // menuButton
+            // 
+            this.menuButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.menuButton.Image = global::Projeto01.Properties.Resources.menu_ui;
+            this.menuButton.Location = new System.Drawing.Point(23, 30);
+            this.menuButton.Name = "menuButton";
+            this.menuButton.Size = new System.Drawing.Size(30, 30);
+            this.menuButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.menuButton.TabIndex = 0;
+            this.menuButton.TabStop = false;
+            this.menuButton.Click += new System.EventHandler(this.menuButton_Click);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.button1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button1.Image = global::Projeto01.Properties.Resources.home1;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(-19, -9);
+            this.button1.Name = "button1";
+            this.button1.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.button1.Size = new System.Drawing.Size(252, 68);
+            this.button1.TabIndex = 20;
+            this.button1.Text = "             Inicio";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // btnInicio
+            // 
+            this.btnInicio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.btnInicio.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInicio.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnInicio.Image = global::Projeto01.Properties.Resources.home1;
+            this.btnInicio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnInicio.Location = new System.Drawing.Point(-19, -9);
+            this.btnInicio.Name = "btnInicio";
+            this.btnInicio.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btnInicio.Size = new System.Drawing.Size(252, 68);
+            this.btnInicio.TabIndex = 20;
+            this.btnInicio.Text = "             Inicio";
+            this.btnInicio.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnInicio.UseVisualStyleBackColor = false;
+            this.btnInicio.Click += new System.EventHandler(this.btnInicio_Click);
+            // 
+            // btnAlunos
+            // 
+            this.btnAlunos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.btnAlunos.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAlunos.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnAlunos.Image = global::Projeto01.Properties.Resources.pessoas1;
+            this.btnAlunos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAlunos.Location = new System.Drawing.Point(-19, -9);
+            this.btnAlunos.Name = "btnAlunos";
+            this.btnAlunos.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btnAlunos.Size = new System.Drawing.Size(252, 68);
+            this.btnAlunos.TabIndex = 20;
+            this.btnAlunos.Text = "             Alunos";
+            this.btnAlunos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAlunos.UseVisualStyleBackColor = false;
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.button3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button3.Image = global::Projeto01.Properties.Resources.home1;
+            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button3.Location = new System.Drawing.Point(-19, -9);
+            this.button3.Name = "button3";
+            this.button3.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.button3.Size = new System.Drawing.Size(252, 68);
+            this.button3.TabIndex = 20;
+            this.button3.Text = "             Inicio";
+            this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button3.UseVisualStyleBackColor = false;
+            // 
+            // btnPlanos
+            // 
+            this.btnPlanos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.btnPlanos.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPlanos.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnPlanos.Image = global::Projeto01.Properties.Resources.finance_ui_jpg;
+            this.btnPlanos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPlanos.Location = new System.Drawing.Point(-19, -9);
+            this.btnPlanos.Name = "btnPlanos";
+            this.btnPlanos.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btnPlanos.Size = new System.Drawing.Size(252, 68);
+            this.btnPlanos.TabIndex = 20;
+            this.btnPlanos.Text = "             Planos";
+            this.btnPlanos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPlanos.UseVisualStyleBackColor = false;
+            // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.button5.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button5.Image = global::Projeto01.Properties.Resources.home1;
+            this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button5.Location = new System.Drawing.Point(-19, -9);
+            this.button5.Name = "button5";
+            this.button5.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.button5.Size = new System.Drawing.Size(252, 68);
+            this.button5.TabIndex = 20;
+            this.button5.Text = "             Inicio";
+            this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button5.UseVisualStyleBackColor = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label2.Location = new System.Drawing.Point(74, 36);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(52, 21);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Menu";
+            // 
+            // sidebarTime
+            // 
+            this.sidebarTime.Interval = 10;
+            this.sidebarTime.Tick += new System.EventHandler(this.sidebarTime_Tick);
+            // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(637, 396);
+            this.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.ClientSize = new System.Drawing.Size(1107, 652);
+            this.Controls.Add(this.sidebar);
             this.Controls.Add(this.txtNomePesquisar);
             this.Controls.Add(this.lblNomePesquisar);
             this.Controls.Add(this.btnPesquisar);
@@ -220,6 +449,16 @@
             this.Controls.Add(this.lblNome);
             this.Name = "FrmPrincipal";
             this.Text = "Principal";
+            this.sidebar.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
+            this.panel6.ResumeLayout(false);
+            this.panel7.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.menuButton)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -243,6 +482,23 @@
         private System.Windows.Forms.Button btnPesquisar;
         private System.Windows.Forms.TextBox txtNomePesquisar;
         private System.Windows.Forms.Label lblNomePesquisar;
+        private System.Windows.Forms.FlowLayoutPanel sidebar;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btnInicio;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Button btnAlunos;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Button btnPlanos;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.PictureBox menuButton;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Timer sidebarTime;
     }
 }
 

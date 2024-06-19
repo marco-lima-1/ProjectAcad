@@ -98,5 +98,26 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\home.ui.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\home.ui2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\home.ui1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pessoas.ui.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pessoas.ui1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\finance.ui.jpg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\menu.ui.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
