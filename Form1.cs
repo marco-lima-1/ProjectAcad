@@ -369,5 +369,19 @@ namespace Projeto01
         {
             sidebarTime.Start();
         }
+
+        private void btnAlunos_Click(object sender, EventArgs e)
+        {
+            if(!panel.Controls.Contains(AlunosControl.Instance))
+            {
+                panel.Controls.Add(AlunosControl.Instance);
+                AlunosControl.Instance.Dock = DockStyle.Fill;
+                AlunosControl.Instance.BringToFront();
+            }
+            else
+            {
+                AlunosControl.Instance.BringToFront();
+            }
+        }
     }
 }

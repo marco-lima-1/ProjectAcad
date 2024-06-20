@@ -47,25 +47,20 @@
             this.lblNomePesquisar = new System.Windows.Forms.Label();
             this.sidebar = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.sidebarTime = new System.Windows.Forms.Timer(this.components);
             this.menuButton = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btnInicio = new System.Windows.Forms.Button();
             this.btnAlunos = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.btnPlanos = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.sidebarTime = new System.Windows.Forms.Timer(this.components);
+            this.panel = new System.Windows.Forms.Panel();
             this.sidebar.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -151,9 +146,9 @@
             this.label3.Font = new System.Drawing.Font("Candara", 14.25F, System.Drawing.FontStyle.Bold);
             this.label3.Location = new System.Drawing.Point(253, 33);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(280, 23);
+            this.label3.Size = new System.Drawing.Size(175, 23);
             this.label3.TabIndex = 8;
-            this.label3.Text = "TELA DE CADASTRO DE CLIENTES";
+            this.label3.Text = "CADASTRAR ALUNO";
             // 
             // btnExcluir
             // 
@@ -180,7 +175,7 @@
             // btnAtualizar
             // 
             this.btnAtualizar.Enabled = false;
-            this.btnAtualizar.Location = new System.Drawing.Point(443, 326);
+            this.btnAtualizar.Location = new System.Drawing.Point(442, 335);
             this.btnAtualizar.Name = "btnAtualizar";
             this.btnAtualizar.Size = new System.Drawing.Size(97, 23);
             this.btnAtualizar.TabIndex = 14;
@@ -192,15 +187,15 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Candara", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(254, 252);
+            this.label1.Location = new System.Drawing.Point(253, 261);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(177, 23);
+            this.label1.Size = new System.Drawing.Size(142, 23);
             this.label1.TabIndex = 15;
-            this.label1.Text = "PESQUISAR CLIENTE";
+            this.label1.Text = "BUSCAR ALUNO";
             // 
             // btnPesquisar
             // 
-            this.btnPesquisar.Location = new System.Drawing.Point(362, 326);
+            this.btnPesquisar.Location = new System.Drawing.Point(361, 335);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(75, 23);
             this.btnPesquisar.TabIndex = 16;
@@ -210,7 +205,7 @@
             // 
             // txtNomePesquisar
             // 
-            this.txtNomePesquisar.Location = new System.Drawing.Point(361, 291);
+            this.txtNomePesquisar.Location = new System.Drawing.Point(360, 300);
             this.txtNomePesquisar.Name = "txtNomePesquisar";
             this.txtNomePesquisar.Size = new System.Drawing.Size(322, 20);
             this.txtNomePesquisar.TabIndex = 18;
@@ -218,7 +213,7 @@
             // lblNomePesquisar
             // 
             this.lblNomePesquisar.AutoSize = true;
-            this.lblNomePesquisar.Location = new System.Drawing.Point(254, 294);
+            this.lblNomePesquisar.Location = new System.Drawing.Point(253, 303);
             this.lblNomePesquisar.Name = "lblNomePesquisar";
             this.lblNomePesquisar.Size = new System.Drawing.Size(84, 13);
             this.lblNomePesquisar.TabIndex = 17;
@@ -228,15 +223,14 @@
             // 
             this.sidebar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.sidebar.Controls.Add(this.panel1);
-            this.sidebar.Controls.Add(this.panel2);
             this.sidebar.Controls.Add(this.panel4);
             this.sidebar.Controls.Add(this.panel6);
             this.sidebar.Dock = System.Windows.Forms.DockStyle.Left;
             this.sidebar.Location = new System.Drawing.Point(0, 0);
-            this.sidebar.MaximumSize = new System.Drawing.Size(220, 652);
+            this.sidebar.MaximumSize = new System.Drawing.Size(220, 1080);
             this.sidebar.MinimumSize = new System.Drawing.Size(79, 652);
             this.sidebar.Name = "sidebar";
-            this.sidebar.Size = new System.Drawing.Size(79, 652);
+            this.sidebar.Size = new System.Drawing.Size(79, 1041);
             this.sidebar.TabIndex = 19;
             // 
             // panel1
@@ -248,28 +242,22 @@
             this.panel1.Size = new System.Drawing.Size(217, 78);
             this.panel1.TabIndex = 0;
             // 
-            // panel2
+            // label2
             // 
-            this.panel2.Controls.Add(this.panel3);
-            this.panel2.Controls.Add(this.btnInicio);
-            this.panel2.Location = new System.Drawing.Point(3, 87);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(217, 49);
-            this.panel2.TabIndex = 1;
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.button1);
-            this.panel3.Location = new System.Drawing.Point(8, 8);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(217, 49);
-            this.panel3.TabIndex = 21;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label2.Location = new System.Drawing.Point(74, 36);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(52, 21);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Menu";
             // 
             // panel4
             // 
             this.panel4.Controls.Add(this.panel5);
             this.panel4.Controls.Add(this.button3);
-            this.panel4.Location = new System.Drawing.Point(3, 142);
+            this.panel4.Location = new System.Drawing.Point(3, 87);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(217, 49);
             this.panel4.TabIndex = 22;
@@ -286,7 +274,7 @@
             // 
             this.panel6.Controls.Add(this.panel7);
             this.panel6.Controls.Add(this.button5);
-            this.panel6.Location = new System.Drawing.Point(3, 197);
+            this.panel6.Location = new System.Drawing.Point(3, 142);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(217, 49);
             this.panel6.TabIndex = 22;
@@ -298,6 +286,11 @@
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(217, 49);
             this.panel7.TabIndex = 21;
+            // 
+            // sidebarTime
+            // 
+            this.sidebarTime.Interval = 10;
+            this.sidebarTime.Tick += new System.EventHandler(this.sidebarTime_Tick);
             // 
             // menuButton
             // 
@@ -311,42 +304,10 @@
             this.menuButton.TabStop = false;
             this.menuButton.Click += new System.EventHandler(this.menuButton_Click);
             // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.button1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button1.Image = global::Projeto01.Properties.Resources.home1;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(-19, -9);
-            this.button1.Name = "button1";
-            this.button1.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.button1.Size = new System.Drawing.Size(252, 68);
-            this.button1.TabIndex = 20;
-            this.button1.Text = "             Inicio";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // btnInicio
-            // 
-            this.btnInicio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.btnInicio.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnInicio.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnInicio.Image = global::Projeto01.Properties.Resources.home1;
-            this.btnInicio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnInicio.Location = new System.Drawing.Point(-19, -9);
-            this.btnInicio.Name = "btnInicio";
-            this.btnInicio.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btnInicio.Size = new System.Drawing.Size(252, 68);
-            this.btnInicio.TabIndex = 20;
-            this.btnInicio.Text = "             Inicio";
-            this.btnInicio.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnInicio.UseVisualStyleBackColor = false;
-            this.btnInicio.Click += new System.EventHandler(this.btnInicio_Click);
-            // 
             // btnAlunos
             // 
             this.btnAlunos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.btnAlunos.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAlunos.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAlunos.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnAlunos.Image = global::Projeto01.Properties.Resources.pessoas1;
@@ -359,6 +320,7 @@
             this.btnAlunos.Text = "             Alunos";
             this.btnAlunos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAlunos.UseVisualStyleBackColor = false;
+            this.btnAlunos.Click += new System.EventHandler(this.btnAlunos_Click);
             // 
             // button3
             // 
@@ -408,28 +370,20 @@
             this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button5.UseVisualStyleBackColor = false;
             // 
-            // label2
+            // panel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
-            this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label2.Location = new System.Drawing.Point(74, 36);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(52, 21);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Menu";
-            // 
-            // sidebarTime
-            // 
-            this.sidebarTime.Interval = 10;
-            this.sidebarTime.Tick += new System.EventHandler(this.sidebarTime_Tick);
+            this.panel.Location = new System.Drawing.Point(870, 39);
+            this.panel.Name = "panel";
+            this.panel.Size = new System.Drawing.Size(629, 935);
+            this.panel.TabIndex = 20;
             // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(1107, 652);
+            this.ClientSize = new System.Drawing.Size(1582, 1041);
+            this.Controls.Add(this.panel);
             this.Controls.Add(this.sidebar);
             this.Controls.Add(this.txtNomePesquisar);
             this.Controls.Add(this.lblNomePesquisar);
@@ -447,13 +401,12 @@
             this.Controls.Add(this.lblTel);
             this.Controls.Add(this.lblCpf);
             this.Controls.Add(this.lblNome);
+            this.MaximumSize = new System.Drawing.Size(1920, 1080);
             this.Name = "FrmPrincipal";
             this.Text = "Principal";
             this.sidebar.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
@@ -484,10 +437,6 @@
         private System.Windows.Forms.Label lblNomePesquisar;
         private System.Windows.Forms.FlowLayoutPanel sidebar;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btnInicio;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Button btnAlunos;
@@ -499,6 +448,7 @@
         private System.Windows.Forms.PictureBox menuButton;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Timer sidebarTime;
+        private System.Windows.Forms.Panel panel;
     }
 }
 
