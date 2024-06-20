@@ -31,6 +31,7 @@ namespace Projeto01
             txtNome.Focus();
             HabilitarBotoes();
             btnExcluir.Enabled = false;
+            btnAtualizar.Enabled = false;
             btnNovo.Enabled = false;
             txtNomePesquisar.Enabled = false;
             btnPesquisar.Enabled = false;
