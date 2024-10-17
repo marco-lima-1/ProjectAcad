@@ -36,6 +36,9 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.SqlClient, Version=4.6.1.6, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Data.SqlClient.4.8.6\lib\net461\System.Data.SqlClient.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -52,11 +55,15 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AcademiaDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="AlunosControl.cs">
-      <SubType>UserControl</SubType>
+    <Compile Include="AcademiaDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AcademiaDataSet1.xsd</DependentUpon>
     </Compile>
-    <Compile Include="AlunosControl.Designer.cs">
-      <DependentUpon>AlunosControl.cs</DependentUpon>
+    <Compile Include="AcademiaDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AcademiaDataSet2.xsd</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -72,10 +79,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UserDbContext.cs" />
-    <EmbeddedResource Include="AlunosControl.resx">
-      <DependentUpon>AlunosControl.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -103,6 +106,29 @@
     <None Include="AcademiaDataSet.xss">
       <DependentUpon>AcademiaDataSet.xsd</DependentUpon>
     </None>
+    <None Include="AcademiaDataSet1.xsc">
+      <DependentUpon>AcademiaDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="AcademiaDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>AcademiaDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="AcademiaDataSet1.xss">
+      <DependentUpon>AcademiaDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="AcademiaDataSet2.xsc">
+      <DependentUpon>AcademiaDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="AcademiaDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>AcademiaDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="AcademiaDataSet2.xss">
+      <DependentUpon>AcademiaDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

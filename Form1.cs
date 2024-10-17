@@ -73,6 +73,7 @@ namespace Projeto01
                         insertCmd.Parameters.AddWithValue("@cpf", this.txtCPF.Text);
                         insertCmd.Parameters.AddWithValue("@telefone", this.txtTel.Text);
 
+
                         // Executando o comando de inserção
                         insertCmd.ExecuteNonQuery();
                         MessageBox.Show("Cadastro concluído com êxito");
@@ -82,6 +83,8 @@ namespace Projeto01
                         DesabilitarCampos();
                         DesabilitarBotoes();
                         btnNovo.Enabled = true;
+                        btnPesquisar.Enabled = true;
+                        btnPesquisar.Enabled = true;
                     }
 
                     // Fechar a conexão
@@ -121,6 +124,9 @@ namespace Projeto01
                     txtNome.Text = dt["Nome"].ToString();
                     txtCPF.Text = dt["Cpf"].ToString();
                     txtTel.Text = dt["Telefone"].ToString();
+
+
+
                     HabilitarCampos();
                     btnExcluir.Enabled = true;
                     btnCancelar.Enabled = true;
@@ -193,6 +199,7 @@ namespace Projeto01
             btnCancelar.Enabled = true;
             btnPesquisar.Enabled = true;
             btnAtualizar.Enabled = true;
+            
         }
         //metodo limpa textos
         private void LimparCampos()
@@ -356,12 +363,12 @@ namespace Projeto01
             else
             {
                 sidebar.Width += 10;
-                if(sidebar.Width == sidebar.MaximumSize.Width)
+                if (sidebar.Width == sidebar.MaximumSize.Width)
                 {
                     sidebarExpand = true;
                     sidebarTime.Stop();
                 }
-                
+
             }
         }
 
@@ -372,16 +379,14 @@ namespace Projeto01
 
         private void btnAlunos_Click(object sender, EventArgs e)
         {
-            if(!panel.Controls.Contains(AlunosControl.Instance))
-            {
-                panel.Controls.Add(AlunosControl.Instance);
-                AlunosControl.Instance.Dock = DockStyle.Fill;
-                AlunosControl.Instance.BringToFront();
-            }
-            else
-            {
-                AlunosControl.Instance.BringToFront();
-            }
+
+
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

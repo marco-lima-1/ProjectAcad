@@ -48,24 +48,25 @@
             this.sidebar = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
+            this.menuButton = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.sidebarTime = new System.Windows.Forms.Timer(this.components);
-            this.menuButton = new System.Windows.Forms.PictureBox();
             this.btnAlunos = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.panel7 = new System.Windows.Forms.Panel();
             this.btnPlanos = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
-            this.panel = new System.Windows.Forms.Panel();
+            this.sidebarTime = new System.Windows.Forms.Timer(this.components);
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.sidebar.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.menuButton)).BeginInit();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.menuButton)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblNome
@@ -89,7 +90,7 @@
             // lblTel
             // 
             this.lblTel.AutoSize = true;
-            this.lblTel.Location = new System.Drawing.Point(303, 130);
+            this.lblTel.Location = new System.Drawing.Point(303, 133);
             this.lblTel.Name = "lblTel";
             this.lblTel.Size = new System.Drawing.Size(42, 13);
             this.lblTel.TabIndex = 2;
@@ -121,7 +122,7 @@
             // 
             // btnNovo
             // 
-            this.btnNovo.Location = new System.Drawing.Point(362, 165);
+            this.btnNovo.Location = new System.Drawing.Point(361, 168);
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.Size = new System.Drawing.Size(75, 23);
             this.btnNovo.TabIndex = 6;
@@ -132,7 +133,7 @@
             // btnSalvar
             // 
             this.btnSalvar.Enabled = false;
-            this.btnSalvar.Location = new System.Drawing.Point(443, 165);
+            this.btnSalvar.Location = new System.Drawing.Point(442, 168);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(75, 23);
             this.btnSalvar.TabIndex = 7;
@@ -153,7 +154,7 @@
             // btnExcluir
             // 
             this.btnExcluir.Enabled = false;
-            this.btnExcluir.Location = new System.Drawing.Point(524, 165);
+            this.btnExcluir.Location = new System.Drawing.Point(523, 168);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(75, 23);
             this.btnExcluir.TabIndex = 9;
@@ -164,7 +165,7 @@
             // btnCancelar
             // 
             this.btnCancelar.Enabled = false;
-            this.btnCancelar.Location = new System.Drawing.Point(605, 165);
+            this.btnCancelar.Location = new System.Drawing.Point(604, 168);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 10;
@@ -175,7 +176,7 @@
             // btnAtualizar
             // 
             this.btnAtualizar.Enabled = false;
-            this.btnAtualizar.Location = new System.Drawing.Point(442, 335);
+            this.btnAtualizar.Location = new System.Drawing.Point(443, 292);
             this.btnAtualizar.Name = "btnAtualizar";
             this.btnAtualizar.Size = new System.Drawing.Size(97, 23);
             this.btnAtualizar.TabIndex = 14;
@@ -187,7 +188,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Candara", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(253, 261);
+            this.label1.Location = new System.Drawing.Point(254, 218);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(142, 23);
             this.label1.TabIndex = 15;
@@ -195,7 +196,7 @@
             // 
             // btnPesquisar
             // 
-            this.btnPesquisar.Location = new System.Drawing.Point(361, 335);
+            this.btnPesquisar.Location = new System.Drawing.Point(362, 292);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(75, 23);
             this.btnPesquisar.TabIndex = 16;
@@ -205,7 +206,7 @@
             // 
             // txtNomePesquisar
             // 
-            this.txtNomePesquisar.Location = new System.Drawing.Point(360, 300);
+            this.txtNomePesquisar.Location = new System.Drawing.Point(361, 257);
             this.txtNomePesquisar.Name = "txtNomePesquisar";
             this.txtNomePesquisar.Size = new System.Drawing.Size(322, 20);
             this.txtNomePesquisar.TabIndex = 18;
@@ -213,7 +214,7 @@
             // lblNomePesquisar
             // 
             this.lblNomePesquisar.AutoSize = true;
-            this.lblNomePesquisar.Location = new System.Drawing.Point(253, 303);
+            this.lblNomePesquisar.Location = new System.Drawing.Point(254, 260);
             this.lblNomePesquisar.Name = "lblNomePesquisar";
             this.lblNomePesquisar.Size = new System.Drawing.Size(84, 13);
             this.lblNomePesquisar.TabIndex = 17;
@@ -221,6 +222,7 @@
             // 
             // sidebar
             // 
+            this.sidebar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.sidebar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.sidebar.Controls.Add(this.panel1);
             this.sidebar.Controls.Add(this.panel4);
@@ -253,6 +255,18 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Menu";
             // 
+            // menuButton
+            // 
+            this.menuButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.menuButton.Image = global::Projeto01.Properties.Resources.menu_ui;
+            this.menuButton.Location = new System.Drawing.Point(23, 30);
+            this.menuButton.Name = "menuButton";
+            this.menuButton.Size = new System.Drawing.Size(30, 30);
+            this.menuButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.menuButton.TabIndex = 0;
+            this.menuButton.TabStop = false;
+            this.menuButton.Click += new System.EventHandler(this.menuButton_Click);
+            // 
             // panel4
             // 
             this.panel4.Controls.Add(this.panel5);
@@ -269,40 +283,6 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(217, 49);
             this.panel5.TabIndex = 21;
-            // 
-            // panel6
-            // 
-            this.panel6.Controls.Add(this.panel7);
-            this.panel6.Controls.Add(this.button5);
-            this.panel6.Location = new System.Drawing.Point(3, 142);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(217, 49);
-            this.panel6.TabIndex = 22;
-            // 
-            // panel7
-            // 
-            this.panel7.Controls.Add(this.btnPlanos);
-            this.panel7.Location = new System.Drawing.Point(8, 8);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(217, 49);
-            this.panel7.TabIndex = 21;
-            // 
-            // sidebarTime
-            // 
-            this.sidebarTime.Interval = 10;
-            this.sidebarTime.Tick += new System.EventHandler(this.sidebarTime_Tick);
-            // 
-            // menuButton
-            // 
-            this.menuButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.menuButton.Image = global::Projeto01.Properties.Resources.menu_ui;
-            this.menuButton.Location = new System.Drawing.Point(23, 30);
-            this.menuButton.Name = "menuButton";
-            this.menuButton.Size = new System.Drawing.Size(30, 30);
-            this.menuButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.menuButton.TabIndex = 0;
-            this.menuButton.TabStop = false;
-            this.menuButton.Click += new System.EventHandler(this.menuButton_Click);
             // 
             // btnAlunos
             // 
@@ -338,6 +318,23 @@
             this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button3.UseVisualStyleBackColor = false;
             // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.panel7);
+            this.panel6.Controls.Add(this.button5);
+            this.panel6.Location = new System.Drawing.Point(3, 142);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(217, 49);
+            this.panel6.TabIndex = 22;
+            // 
+            // panel7
+            // 
+            this.panel7.Controls.Add(this.btnPlanos);
+            this.panel7.Location = new System.Drawing.Point(8, 8);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(217, 49);
+            this.panel7.TabIndex = 21;
+            // 
             // btnPlanos
             // 
             this.btnPlanos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
@@ -370,12 +367,18 @@
             this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button5.UseVisualStyleBackColor = false;
             // 
-            // panel
+            // sidebarTime
             // 
-            this.panel.Location = new System.Drawing.Point(870, 39);
-            this.panel.Name = "panel";
-            this.panel.Size = new System.Drawing.Size(629, 935);
-            this.panel.TabIndex = 20;
+            this.sidebarTime.Interval = 10;
+            this.sidebarTime.Tick += new System.EventHandler(this.sidebarTime_Tick);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(962, 150);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(240, 150);
+            this.dataGridView1.TabIndex = 20;
             // 
             // FrmPrincipal
             // 
@@ -383,7 +386,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(1582, 1041);
-            this.Controls.Add(this.panel);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.sidebar);
             this.Controls.Add(this.txtNomePesquisar);
             this.Controls.Add(this.lblNomePesquisar);
@@ -407,11 +410,12 @@
             this.sidebar.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.menuButton)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.menuButton)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -448,7 +452,7 @@
         private System.Windows.Forms.PictureBox menuButton;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Timer sidebarTime;
-        private System.Windows.Forms.Panel panel;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
 
