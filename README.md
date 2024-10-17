@@ -4,5 +4,9 @@ Além do controle de pagamentos, o sistema também possui funcionalidades para r
 
 Esse projeto foi desenvolvido utilizando C# com a arquitetura MVC, empregando o Entity Framework para a comunicação com o banco de dados SQL Server. A ideia é que o sistema automatize as cobranças, melhore a gestão dos clientes, e ofereça uma visão clara de todas as transações financeiras relacionadas à academia.
 
-![Screenshot 2024-10-17 115803](https://github.com/user-attachments/assets/1ab17b96-d74b-4300-8cfc-c7b60c556aab)
+[TELA DE LOGIN]
 ![Screenshot 2024-10-17 115749](https://github.com/user-attachments/assets/fdf2b7e5-1458-42f3-851f-85e415771b42)
+
+[APÓS O LOGIN BEM SUCEDIDO]
+![Screenshot 2024-10-17 115803](https://github.com/user-attachments/assets/1ab17b96-d74b-4300-8cfc-c7b60c556aab)
+
