@@ -39,6 +39,7 @@
     <Reference Include="System.Data.SqlClient, Version=4.6.1.6, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>packages\System.Data.SqlClient.4.8.6\lib\net461\System.Data.SqlClient.dll</HintPath>
     </Reference>
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -55,21 +56,22 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AcademiaDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="AcademiaDataSet1.Designer.cs">
+    <Compile Include="AcademiaDataSet8.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>AcademiaDataSet1.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="AcademiaDataSet2.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AcademiaDataSet2.xsd</DependentUpon>
+      <DependentUpon>AcademiaDataSet8.xsd</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Home.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Home.Designer.cs">
+      <DependentUpon>Home.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -81,6 +83,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Home.resx">
+      <DependentUpon>Home.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -106,27 +111,16 @@
     <None Include="AcademiaDataSet.xss">
       <DependentUpon>AcademiaDataSet.xsd</DependentUpon>
     </None>
-    <None Include="AcademiaDataSet1.xsc">
-      <DependentUpon>AcademiaDataSet1.xsd</DependentUpon>
+    <None Include="AcademiaDataSet8.xsc">
+      <DependentUpon>AcademiaDataSet8.xsd</DependentUpon>
     </None>
-    <None Include="AcademiaDataSet1.xsd">
+    <None Include="AcademiaDataSet8.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>AcademiaDataSet1.Designer.cs</LastGenOutput>
+      <LastGenOutput>AcademiaDataSet8.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="AcademiaDataSet1.xss">
-      <DependentUpon>AcademiaDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="AcademiaDataSet2.xsc">
-      <DependentUpon>AcademiaDataSet2.xsd</DependentUpon>
-    </None>
-    <None Include="AcademiaDataSet2.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>AcademiaDataSet2.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="AcademiaDataSet2.xss">
-      <DependentUpon>AcademiaDataSet2.xsd</DependentUpon>
+    <None Include="AcademiaDataSet8.xss">
+      <DependentUpon>AcademiaDataSet8.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

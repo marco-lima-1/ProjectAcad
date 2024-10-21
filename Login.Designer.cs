@@ -40,7 +40,7 @@
             // btnLogin
             // 
             this.btnLogin.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnLogin.Location = new System.Drawing.Point(458, 434);
+            this.btnLogin.Location = new System.Drawing.Point(599, 561);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(75, 23);
             this.btnLogin.TabIndex = 13;
@@ -50,14 +50,14 @@
             // 
             // txtBoxPassword
             // 
-            this.txtBoxPassword.Location = new System.Drawing.Point(308, 383);
+            this.txtBoxPassword.Location = new System.Drawing.Point(449, 510);
             this.txtBoxPassword.Name = "txtBoxPassword";
             this.txtBoxPassword.Size = new System.Drawing.Size(225, 20);
             this.txtBoxPassword.TabIndex = 12;
             // 
             // txtBoxUserName
             // 
-            this.txtBoxUserName.Location = new System.Drawing.Point(308, 322);
+            this.txtBoxUserName.Location = new System.Drawing.Point(449, 449);
             this.txtBoxUserName.Name = "txtBoxUserName";
             this.txtBoxUserName.Size = new System.Drawing.Size(225, 20);
             this.txtBoxUserName.TabIndex = 11;
@@ -66,7 +66,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(247, 384);
+            this.label3.Location = new System.Drawing.Point(388, 511);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(55, 19);
             this.label3.TabIndex = 10;
@@ -76,7 +76,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(237, 322);
+            this.label2.Location = new System.Drawing.Point(378, 449);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(65, 19);
             this.label2.TabIndex = 9;
@@ -86,7 +86,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(304, 272);
+            this.label1.Location = new System.Drawing.Point(445, 399);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(174, 19);
             this.label1.TabIndex = 8;
@@ -95,7 +95,7 @@
             // panel1
             // 
             this.panel1.BackgroundImage = global::Projeto01.Properties.Resources.png_clipart_brazilian_jiu_jitsu_ranking_system_black_belt_jujutsu_red_belt_others_miscellaneous_angle_thumbnail1;
-            this.panel1.Location = new System.Drawing.Point(216, -6);
+            this.panel1.Location = new System.Drawing.Point(357, 121);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(368, 189);
             this.panel1.TabIndex = 7;
@@ -104,7 +104,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 528);
+            this.ClientSize = new System.Drawing.Size(1099, 806);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.txtBoxPassword);
             this.Controls.Add(this.txtBoxUserName);
@@ -113,6 +113,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
             this.Name = "Login";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             this.Load += new System.EventHandler(this.Login_Load);
             this.ResumeLayout(false);

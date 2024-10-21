@@ -16,16 +16,15 @@ namespace Projeto01
         //conexao com banco de dados
         SqlConnection cn = new SqlConnection("Data Source = OGPC; Initial Catalog = Academia; User Id=sa;Password=39465512");
 
-        string strSQL = "insert into Cliente (Nome, Cpf, Telefone) values (@nome, @cpf, @telefone)";
+        string strSQL = "insert into Cliente (Nome, Cpf, Telefone,StatusMensalidade,DataPagamento) values (@nome, @cpf, @telefone, @StatusMensalidade, @DataPagamento)";
 
 
 
 
         private void FrmPrincipal_Load(object sender, EventArgs e)
         {
-
         }
-        private void btnNovo_Click(object sender, EventArgs e)
+        public void btnNovo_Click(object sender, EventArgs e)
         {
             HabilitarCampos();
             txtNome.Focus();
@@ -64,14 +63,28 @@ namespace Projeto01
                     }
                     else
                     {
+
+
                         // CPF não cadastrado, prosseguir com a inserção
-                        string insertSQL = "INSERT INTO Cliente (Nome, Cpf, Telefone) VALUES (@nome, @cpf, @telefone)";
+                        string insertSQL = "INSERT INTO Cliente (Nome, Cpf, Telefone,StatusMensalidade,DataPagamento) VALUES (@nome, @cpf, @telefone, @StatusMensalidade, @DataPagamento)";
                         SqlCommand insertCmd = new SqlCommand(insertSQL, cn);
+
 
                         // Adicionando os parâmetros com os valores dos campos de texto
                         insertCmd.Parameters.AddWithValue("@nome", this.txtNome.Text);
                         insertCmd.Parameters.AddWithValue("@cpf", this.txtCPF.Text);
                         insertCmd.Parameters.AddWithValue("@telefone", this.txtTel.Text);
+                        string status = cmbStatus.SelectedItem.ToString();
+                        DateTime? dataPagamento = null;
+                        if(status == "Pago")
+                        {
+                            dataPagamento = dtpDataPagamento.Value;
+                        }
+                        
+
+                        insertCmd.Parameters.AddWithValue("@StatusMensalidade", status);
+                        insertCmd.Parameters.AddWithValue("@DataPagamento", dataPagamento);
+
 
 
                         // Executando o comando de inserção
@@ -85,6 +98,7 @@ namespace Projeto01
                         btnNovo.Enabled = true;
                         btnPesquisar.Enabled = true;
                         btnPesquisar.Enabled = true;
+                        txtNomePesquisar.Enabled = true;
                     }
 
                     // Fechar a conexão
@@ -222,6 +236,8 @@ namespace Projeto01
             txtNome.Enabled = true;
             txtCPF.Enabled = true;
             txtTel.Enabled = true;
+            cmbStatus.Enabled = true;
+            dtpDataPagamento.Enabled = true;
         }
 
         private void AtualizarDados()
@@ -305,7 +321,7 @@ namespace Projeto01
         private void BuscarPorNome()
         {
             cn.Open();
-            string selectSQL = "SELECT Nome, Cpf, Telefone FROM Cliente WHERE Nome = @nome";
+            string selectSQL = "SELECT Nome, Cpf, Telefone, StatusMensalidade, DataPagamento FROM Cliente WHERE Nome = @nome";
             SqlCommand selectCmd = new SqlCommand(selectSQL, cn);
 
             // Adicionando o parâmetro com o nome para a busca
@@ -320,6 +336,8 @@ namespace Projeto01
                 this.txtNome.Text = reader["Nome"].ToString();
                 this.txtCPF.Text = reader["Cpf"].ToString();
                 this.txtTel.Text = reader["Telefone"].ToString();
+                this.cmbStatus.SelectedItem = reader["StatusMensalidade"].ToString();
+                this.dtpDataPagamento.Value = (DateTime)reader["DataPagamento"];
 
                 MessageBox.Show("Dados encontrados e preenchidos com êxito");
 
@@ -387,6 +405,25 @@ namespace Projeto01
         private void panel2_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void FrmPrincipal_Load_1(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'academiaDataSet8.Cliente' table. You can move, or remove it, as needed.
+            this.clienteTableAdapter3.Fill(this.academiaDataSet8.Cliente);
+
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDados_Click(object sender, EventArgs e)
+        {
+            Home fm = new Home();
+            fm.Show();
+            this.Hide();
         }
     }
 }
