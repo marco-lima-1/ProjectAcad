@@ -60,15 +60,15 @@
             this.sidebarTime = new System.Windows.Forms.Timer(this.components);
             this.clienteBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
             this.academiaDataSet8 = new Projeto01.AcademiaDataSet8();
-            this.clienteBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cmbStatus = new System.Windows.Forms.ComboBox();
             this.dtpDataPagamento = new System.Windows.Forms.DateTimePicker();
-            this.clienteBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.clienteBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
-            this.academiaDataSet7BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.clienteTableAdapter3 = new Projeto01.AcademiaDataSet8TableAdapters.ClienteTableAdapter();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.clienteBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.clienteBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.clienteBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.academiaDataSet7BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.sidebar.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.menuButton)).BeginInit();
@@ -247,7 +247,7 @@
             this.sidebar.MaximumSize = new System.Drawing.Size(220, 1080);
             this.sidebar.MinimumSize = new System.Drawing.Size(79, 652);
             this.sidebar.Name = "sidebar";
-            this.sidebar.Size = new System.Drawing.Size(79, 652);
+            this.sidebar.Size = new System.Drawing.Size(79, 768);
             this.sidebar.TabIndex = 19;
             // 
             // panel1
@@ -305,7 +305,7 @@
             this.btnAlunos.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAlunos.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAlunos.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnAlunos.Image = global::Projeto01.Properties.Resources.pessoas1;
+            this.btnAlunos.Image = global::Projeto01.Properties.Resources.pessoas_ui;
             this.btnAlunos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAlunos.Location = new System.Drawing.Point(-19, -9);
             this.btnAlunos.Name = "btnAlunos";
@@ -356,12 +356,12 @@
             this.btnDados.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDados.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDados.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnDados.Image = global::Projeto01.Properties.Resources.finance_ui_jpg;
+            this.btnDados.Image = global::Projeto01.Properties.Resources.ad;
             this.btnDados.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDados.Location = new System.Drawing.Point(-19, -9);
             this.btnDados.Name = "btnDados";
             this.btnDados.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btnDados.Size = new System.Drawing.Size(252, 68);
+            this.btnDados.Size = new System.Drawing.Size(244, 60);
             this.btnDados.TabIndex = 20;
             this.btnDados.Text = "             Planos";
             this.btnDados.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -399,10 +399,6 @@
             this.academiaDataSet8.DataSetName = "AcademiaDataSet8";
             this.academiaDataSet8.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // clienteBindingSource
-            // 
-            this.clienteBindingSource.DataMember = "Cliente";
-            // 
             // cmbStatus
             // 
             this.cmbStatus.Enabled = false;
@@ -423,14 +419,6 @@
             this.dtpDataPagamento.Size = new System.Drawing.Size(200, 20);
             this.dtpDataPagamento.TabIndex = 22;
             this.dtpDataPagamento.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
-            // 
-            // clienteBindingSource1
-            // 
-            this.clienteBindingSource1.DataMember = "Cliente";
-            // 
-            // clienteBindingSource2
-            // 
-            this.clienteBindingSource2.DataMember = "Cliente";
             // 
             // clienteTableAdapter3
             // 
@@ -454,12 +442,24 @@
             this.label5.TabIndex = 24;
             this.label5.Text = "Data de pagamento:";
             // 
+            // clienteBindingSource
+            // 
+            this.clienteBindingSource.DataMember = "Cliente";
+            // 
+            // clienteBindingSource1
+            // 
+            this.clienteBindingSource1.DataMember = "Cliente";
+            // 
+            // clienteBindingSource2
+            // 
+            this.clienteBindingSource2.DataMember = "Cliente";
+            // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(1390, 650);
+            this.ClientSize = new System.Drawing.Size(1646, 768);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.dtpDataPagamento);

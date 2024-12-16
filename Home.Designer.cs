@@ -30,17 +30,17 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.academiaDataSet8 = new Projeto01.AcademiaDataSet8();
-            this.academiaDataSet8BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.academiaDataSet = new Projeto01.AcademiaDataSet();
-            this.clienteBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.clienteTableAdapter = new Projeto01.AcademiaDataSetTableAdapters.ClienteTableAdapter();
-            this.button1 = new System.Windows.Forms.Button();
             this.nomeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cpfDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.telefoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.statusMensalidadeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataPagamentoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clienteBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.academiaDataSet = new Projeto01.AcademiaDataSet();
+            this.academiaDataSet8 = new Projeto01.AcademiaDataSet8();
+            this.academiaDataSet8BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.clienteTableAdapter = new Projeto01.AcademiaDataSetTableAdapters.ClienteTableAdapter();
+            this.button1 = new System.Windows.Forms.Button();
             this.lblTotalAlunos = new System.Windows.Forms.Label();
             this.lblPagEmDia = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -49,10 +49,10 @@
             this.txtAtrasados = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clienteBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.academiaDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.academiaDataSet8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.academiaDataSet8BindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.academiaDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clienteBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -73,41 +73,6 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(544, 434);
             this.dataGridView1.TabIndex = 21;
-            // 
-            // academiaDataSet8
-            // 
-            this.academiaDataSet8.DataSetName = "AcademiaDataSet8";
-            this.academiaDataSet8.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // academiaDataSet8BindingSource
-            // 
-            this.academiaDataSet8BindingSource.DataSource = this.academiaDataSet8;
-            this.academiaDataSet8BindingSource.Position = 0;
-            // 
-            // academiaDataSet
-            // 
-            this.academiaDataSet.DataSetName = "AcademiaDataSet";
-            this.academiaDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // clienteBindingSource
-            // 
-            this.clienteBindingSource.DataMember = "Cliente";
-            this.clienteBindingSource.DataSource = this.academiaDataSet;
-            // 
-            // clienteTableAdapter
-            // 
-            this.clienteTableAdapter.ClearBeforeFill = true;
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(846, 222);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(179, 38);
-            this.button1.TabIndex = 23;
-            this.button1.Text = "Gerar relatório";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // nomeDataGridViewTextBoxColumn
             // 
@@ -143,6 +108,41 @@
             this.dataPagamentoDataGridViewTextBoxColumn.HeaderText = "DataPagamento";
             this.dataPagamentoDataGridViewTextBoxColumn.Name = "dataPagamentoDataGridViewTextBoxColumn";
             this.dataPagamentoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // clienteBindingSource
+            // 
+            this.clienteBindingSource.DataMember = "Cliente";
+            this.clienteBindingSource.DataSource = this.academiaDataSet;
+            // 
+            // academiaDataSet
+            // 
+            this.academiaDataSet.DataSetName = "AcademiaDataSet";
+            this.academiaDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // academiaDataSet8
+            // 
+            this.academiaDataSet8.DataSetName = "AcademiaDataSet8";
+            this.academiaDataSet8.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // academiaDataSet8BindingSource
+            // 
+            this.academiaDataSet8BindingSource.DataSource = this.academiaDataSet8;
+            this.academiaDataSet8BindingSource.Position = 0;
+            // 
+            // clienteTableAdapter
+            // 
+            this.clienteTableAdapter.ClearBeforeFill = true;
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(774, 247);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(179, 38);
+            this.button1.TabIndex = 23;
+            this.button1.Text = "Gerar relatório";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // lblTotalAlunos
             // 
@@ -202,7 +202,7 @@
             // 
             // button2
             // 
-            this.button2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button2.BackColor = System.Drawing.Color.Green;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.Location = new System.Drawing.Point(992, 516);
             this.button2.Name = "button2";
@@ -232,10 +232,10 @@
             this.Text = "Dados gerais";
             this.Load += new System.EventHandler(this.Home_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clienteBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.academiaDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.academiaDataSet8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.academiaDataSet8BindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.academiaDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clienteBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

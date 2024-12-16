@@ -1,7 +1,14 @@
-﻿using System;
+﻿using Stripe;
+using Stripe.BillingPortal;
+using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
+using Stripe.Checkout;
+using SessionCreateOptions = Stripe.Checkout.SessionCreateOptions;
+using SessionService = Stripe.Checkout.SessionService;
+using Session = Stripe.Checkout.Session;
 
 namespace Projeto01
 {
@@ -76,11 +83,15 @@ namespace Projeto01
                         insertCmd.Parameters.AddWithValue("@telefone", this.txtTel.Text);
                         string status = cmbStatus.SelectedItem.ToString();
                         DateTime? dataPagamento = null;
-                        if(status == "Pago")
+                        if (status == "Pago")
                         {
                             dataPagamento = dtpDataPagamento.Value;
                         }
-                        
+                        if (status == "Atrasado")
+                        {
+                            dataPagamento = dtpDataPagamento.Value;
+                        }
+
 
                         insertCmd.Parameters.AddWithValue("@StatusMensalidade", status);
                         insertCmd.Parameters.AddWithValue("@DataPagamento", dataPagamento);
@@ -213,7 +224,7 @@ namespace Projeto01
             btnCancelar.Enabled = true;
             btnPesquisar.Enabled = true;
             btnAtualizar.Enabled = true;
-            
+
         }
         //metodo limpa textos
         private void LimparCampos()
@@ -222,6 +233,7 @@ namespace Projeto01
             txtCPF.Clear();
             txtTel.Clear();
             txtNomePesquisar.Clear();
+            cmbStatus.SelectedIndex = -1;
         }
         //metodo desabilita textos
         private void DesabilitarCampos()
@@ -229,6 +241,7 @@ namespace Projeto01
             txtNome.Enabled = false;
             txtCPF.Enabled = false;
             txtTel.Enabled = false;
+            cmbStatus.Enabled = false;
         }
         //metodo habilita textos
         private void HabilitarCampos()
@@ -238,6 +251,7 @@ namespace Projeto01
             txtTel.Enabled = true;
             cmbStatus.Enabled = true;
             dtpDataPagamento.Enabled = true;
+            cmbStatus.Enabled = true;
         }
 
         private void AtualizarDados()
@@ -253,14 +267,26 @@ namespace Projeto01
                     return;
                 }
 
-                cn.Open();
-                string updateSQL = "UPDATE Cliente SET Nome = @nome, Telefone = @telefone, Cpf = @cpf";
+                string updateSQL = "UPDATE Cliente SET Nome = @nome, Telefone = @telefone, Cpf = @cpf, @StatusMensalidade = StatusMensalidade, @DataPagamento = DataPagamento";
                 SqlCommand updateCmd = new SqlCommand(updateSQL, cn);
 
+
+                string status = cmbStatus.SelectedItem.ToString();
+                DateTime? dataPagamento = null;
+                if (status == "Pago")
+                {
+                    dataPagamento = dtpDataPagamento.Value;
+                }
                 // Adicionando os parâmetros com os valores dos campos de texto
                 updateCmd.Parameters.AddWithValue("@nome", this.txtNome.Text.Trim());
                 updateCmd.Parameters.AddWithValue("@cpf", this.txtCPF.Text.Trim());
                 updateCmd.Parameters.AddWithValue("@telefone", this.txtTel.Text.Trim());
+                updateCmd.Parameters.AddWithValue("@StatusMensalidade", status);
+                updateCmd.Parameters.AddWithValue("@DataPagamento", dataPagamento);
+
+
+
+
 
                 // Executando o comando de atualização
                 int rowsAffected = updateCmd.ExecuteNonQuery();
@@ -334,6 +360,7 @@ namespace Projeto01
             {
                 // Preenchendo os campos com as informações encontradas
                 this.txtNome.Text = reader["Nome"].ToString();
+                this.txtNomePag.Text = reader["Nome"].ToString();
                 this.txtCPF.Text = reader["Cpf"].ToString();
                 this.txtTel.Text = reader["Telefone"].ToString();
                 this.cmbStatus.SelectedItem = reader["StatusMensalidade"].ToString();
@@ -397,7 +424,9 @@ namespace Projeto01
 
         private void btnAlunos_Click(object sender, EventArgs e)
         {
-
+            Funcionarios fm = new Funcionarios();
+            fm.Show();
+            this.Hide();
 
 
         }
@@ -409,8 +438,30 @@ namespace Projeto01
 
         private void FrmPrincipal_Load_1(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'academiaDataSet8.Cliente' table. You can move, or remove it, as needed.
             this.clienteTableAdapter3.Fill(this.academiaDataSet8.Cliente);
+
+            //combo
+            cmbTipoCard.Items.Add("Visa");
+            cmbTipoCard.Items.Add("MasterCard");
+            cmbTipoCard.Items.Add("American Express");
+            cmbTipoCard.Items.Add("Elo");
+            cmbTipoCard.Items.Add("Hipercard");
+
+            //combo card
+            for (int i = 1; i <= 12; i++)
+            {
+                cmbMes.Items.Add(i.ToString("00"));
+            }
+
+            int anoatual = DateTime.Now.Year;
+            for (int i = 0; i < 12; i++)
+            {
+                cmbAno.Items.Add((anoatual + i).ToString());
+            }
+
+
+
+
 
         }
 
@@ -425,5 +476,163 @@ namespace Projeto01
             fm.Show();
             this.Hide();
         }
+
+        private void lblCvv_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnNovoCard_Click(object sender, EventArgs e)
+        {
+            HabilitarCamposCard();
+            txtNumeroCard.Focus();
+            HabilitarBotoesCard();
+        }
+
+        private void HabilitarBotoesCard()
+        {
+            btnCancelCard.Enabled = true;
+            btnPagar.Enabled = true;
+        }
+
+        private void HabilitarCamposCard()
+        {
+            txtNumeroCard.Enabled = true;
+            txtNomeCard.Enabled = true;
+            cmbTipoCard.Enabled = true;
+            cmbMes.Enabled = true;
+            cmbAno.Enabled = true;
+            txtCVV.Enabled = true;
+            txtValorPagamento.Enabled = true;
+            btnPagar.Enabled = true;
+        }
+
+        private void btnCancelCard_Click(object sender, EventArgs e)
+        {
+            txtNumeroCard.Enabled = false;
+            txtNomeCard.Enabled = false;
+            cmbTipoCard.Enabled = false;
+            cmbMes.Enabled = false;
+            cmbAno.Enabled = false;
+            txtCVV.Enabled = false;
+            txtValorPagamento.Enabled = false;
+            btnPagar.Enabled = false;
+        }
+
+        private void btnPagar_Click(object sender, EventArgs e)
+        {
+            // Verifica se os campos obrigatórios estão preenchidos
+            if (
+                string.IsNullOrEmpty(txtNumeroCard.Text) ||
+                string.IsNullOrEmpty(txtNomeCard.Text) ||
+                string.IsNullOrEmpty(cmbMes.Text) ||
+                string.IsNullOrEmpty(cmbAno.Text) ||
+                string.IsNullOrEmpty(txtCVV.Text) ||
+                string.IsNullOrEmpty(txtValorPagamento.Text))
+            {
+                MessageBox.Show("Por favor, preencha todos os campos.");
+                return;
+            }
+
+            // Tenta converter o valor para decimal
+            if (!decimal.TryParse(txtValorPagamento.Text, out decimal valorPagamento))
+            {
+                MessageBox.Show("Insira um valor válido.");
+                return;
+            }
+
+            // Obtém os dados do cartão e do pagamento
+            string numeroCARD = txtNumeroCard.Text;
+            string nomeCard = txtNomeCard.Text;
+            string mes = cmbMes.Text;
+            string ano = cmbAno.Text;
+            string cvv = txtCVV.Text;
+
+            // Chave secreta do Stripe
+            Stripe.StripeConfiguration.ApiKey = StripeSecret.StripeSecretKey;
+
+            // Chama o método para criar a sessão de pagamento no Stripe
+            string sessionId = RealizarPagamento(valorPagamento);
+
+            if (!string.IsNullOrEmpty(sessionId))
+            {
+                // URL base para redirecionar ao checkout do Stripe
+                string checkoutUrl = $"https://checkout.stripe.com/pay/{sessionId}";
+
+                // Abre o link no navegador padrão do sistema para realizar o pagamento
+                System.Diagnostics.Process.Start(checkoutUrl);
+            }
+            else
+            {
+                MessageBox.Show("Erro ao criar a sessão de pagamento. Tente novamente.");
+            }
+        }
+
+
+        private string RealizarPagamento(decimal valor)
+        {
+            try
+            {
+                // Configura a chave secreta do Stripe
+                StripeConfiguration.ApiKey = StripeSecret.StripeSecretKey;
+
+                // Cria as opções da sessão de checkout
+                var options = new SessionCreateOptions
+                {
+                    PaymentMethodTypes = new List<string>
+            {
+                "card"
+            },
+                    LineItems = new List<SessionLineItemOptions>
+            {
+                new SessionLineItemOptions
+                {
+                    PriceData = new SessionLineItemPriceDataOptions
+                    {
+                        Currency = "brl",
+                        UnitAmount = (long)(valor * 100), // Convertendo para centavos
+                        ProductData = new SessionLineItemPriceDataProductDataOptions
+                        {
+                            Name = "Pagamento de Mensalidade"
+                        }
+                    },
+                    Quantity = 1
+                }
+            },
+                    Mode = "payment",
+                    SuccessUrl = "https://marco-lima-1.github.io/checkout_acad/sucesso.html",
+                    CancelUrl = "https://marco-lima-1.github.io/checkout_acad/cancelado.html"
+                };
+
+                var service = new SessionService();
+                Session session = service.Create(options);
+
+                // Retorna o sessionId para redirecionar para a página de pagamento
+                return session.Id;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao realizar o pagamento: " + ex.Message);
+                return null;
+            }
+        }
+
+
+        private void AtualizarStatusCliente()
+        {
+            string updateSQL = "UPDATE Cliente SET @StatusMensalidade = StatusMensalidade, @DataPagamento = DataPagamento WHERE Nome = @nome";
+            SqlCommand updateCmd = new SqlCommand(updateSQL, cn);
+
+
+            string status = cmbStatus.SelectedItem.ToString();
+            DateTime? dataPagamento = null;
+            if (status == "Pago")
+            {
+                dataPagamento = dtpDataPagamento.Value;
+            }
+
+            updateCmd.Parameters.AddWithValue("@StatusMensalidade", status);
+        }
+
     }
 }
